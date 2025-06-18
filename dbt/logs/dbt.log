@@ -1,0 +1,91 @@
+[0m17:17:29.961141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f65161a0f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6513c1f810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6513bd9a90>]}
+
+
+============================== 17:17:29.975511 | 25484c79-fdb6-49e5-be4f-86a7be40ea0b ==============================
+[0m17:17:29.975511 [info ] [MainThread]: Running with dbt=1.8.8
+[0m17:17:29.980712 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/root/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt init', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m17:17:30.030493 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': PosixPath('/root/.dbt')}
+[0m17:17:30.033713 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m17:18:03.635216 [debug] [MainThread]: Starter project path: /usr/local/lib/python3.11/site-packages/dbt/include/starter_project
+[0m17:18:03.922025 [info ] [MainThread]: 
+Your new dbt project "fabricamusical" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:18:03.923809 [info ] [MainThread]: Setting up your profile.
+[0m17:27:19.571509 [info ] [MainThread]: Profile fabricamusical written to /root/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m17:27:19.763919 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 589.92426, "process_user_time": 4.905646, "process_kernel_time": 1.550751, "process_mem_max_rss": "216752", "process_in_blocks": "274336", "process_out_blocks": "1456"}
+[0m17:27:19.801877 [debug] [MainThread]: Command `dbt init` succeeded at 17:27:19.801213 after 589.97 seconds
+[0m17:27:19.814895 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6513be6fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f64e5a87a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6514e89190>]}
+[0m17:27:19.821384 [debug] [MainThread]: Flushing usage events
+[0m17:27:34.774104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f293fb9d4d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f293f82e710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f293f86bcd0>]}
+
+
+============================== 17:27:34.780928 | 06deaf7b-6b7a-427c-8162-47673681415d ==============================
+[0m17:27:34.780928 [info ] [MainThread]: Running with dbt=1.8.8
+[0m17:27:34.783003 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m17:27:34.815204 [info ] [MainThread]: dbt version: 1.8.8
+[0m17:27:34.816848 [info ] [MainThread]: python version: 3.11.12
+[0m17:27:34.818619 [info ] [MainThread]: python path: /usr/local/bin/python3.11
+[0m17:27:34.820503 [info ] [MainThread]: os info: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[0m17:27:37.573049 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m17:27:37.575443 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m17:27:37.577355 [info ] [MainThread]: Using dbt_project.yml file at /fabrica/elt/dbt/dbt_project.yml
+[0m17:27:37.579040 [info ] [MainThread]: adapter type: bigquery
+[0m17:27:37.580616 [info ] [MainThread]: adapter version: 1.8.3
+[0m17:27:37.582859 [info ] [MainThread]: Configuration:
+[0m17:27:37.584399 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m17:27:37.586287 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m17:27:37.587785 [info ] [MainThread]: Required dependencies:
+[0m17:27:37.589393 [debug] [MainThread]: Executing "git --help"
+[0m17:27:37.621514 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m17:27:37.624643 [debug] [MainThread]: STDERR: "b''"
+[0m17:27:37.626730 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m17:27:37.628257 [info ] [MainThread]: Connection:
+[0m17:27:37.629825 [info ] [MainThread]:   method: service-account
+[0m17:27:37.631464 [info ] [MainThread]:   database: fabrica-musical-dw
+[0m17:27:37.632964 [info ] [MainThread]:   execution_project: fabrica-musical-dw
+[0m17:27:37.634532 [info ] [MainThread]:   schema: dw
+[0m17:27:37.636164 [info ] [MainThread]:   location: US
+[0m17:27:37.637570 [info ] [MainThread]:   priority: interactive
+[0m17:27:37.638980 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m17:27:37.640721 [info ] [MainThread]:   impersonate_service_account: None
+[0m17:27:37.642724 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m17:27:37.644429 [info ] [MainThread]:   job_retries: 1
+[0m17:27:37.645694 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m17:27:37.647027 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m17:27:37.648324 [info ] [MainThread]:   timeout_seconds: 300
+[0m17:27:37.649802 [info ] [MainThread]:   client_id: None
+[0m17:27:37.651323 [info ] [MainThread]:   token_uri: None
+[0m17:27:37.652857 [info ] [MainThread]:   dataproc_region: None
+[0m17:27:37.654443 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m17:27:37.655859 [info ] [MainThread]:   gcs_bucket: None
+[0m17:27:37.657303 [info ] [MainThread]:   dataproc_batch: None
+[0m17:27:37.659398 [info ] [MainThread]: Registered adapter: bigquery=1.8.3
+[0m17:27:37.671594 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m17:27:37.673775 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:27:37.683328 [debug] [MainThread]: On debug: select 1 as id
+[0m17:27:39.199193 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=fabrica-musical-dw&j=bq:US:1fd8ed68-7c8d-406f-b94c-0be678fd4307&page=queryresults
+[0m17:27:39.803563 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m17:27:39.806808 [info ] [MainThread]: [31m1 check failed:[0m
+[0m17:27:39.809659 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </fabrica/elt/dbt/dbt_project.yml> not found
+
+[0m17:27:39.813475 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 5.132521, "process_user_time": 4.648612, "process_kernel_time": 1.357559, "process_mem_max_rss": "215308", "process_in_blocks": "110536", "process_out_blocks": "40", "command_success": false}
+[0m17:27:39.816357 [debug] [MainThread]: Command `dbt debug` failed at 17:27:39.815936 after 5.14 seconds
+[0m17:27:39.819259 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m17:27:39.821818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f293f837850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f293f875690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2911823a90>]}
+[0m17:27:39.824991 [debug] [MainThread]: Flushing usage events
