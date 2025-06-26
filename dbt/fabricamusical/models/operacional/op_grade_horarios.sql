@@ -17,27 +17,27 @@ UNION ALL
 
 (select 
 case 
-    when m.tipo = 'Instrumento' and m.numero_alunos = '1' then c.apelido 
-    when m.tipo = 'Instrumento' and m.numero_alunos = '2' then STRING_AGG(c.apelido, ' e ')
+    when m.tipo = 'Instrumento' then STRING_AGG(c.apelido, ' e ')
     when m.tipo = 'Prática de conjunto' then d.nome 
     else null 
     end as aluno, 
 professor_id, 
-null as data, 
+'null' as data, 
 dia_semana, 
 horario, 
 sala, 
-null as tipo, 
-null as rn 
+'null' as tipo, 
+1 as rn 
 from {{ source('planilhas', 'matriculas') }} m 
 left join {{ source('planilhas', 'clientes') }} c on m.aluno_id = c.id 
 left join {{ source('planilhas', 'disciplinas') }} d on m.disciplina_id = d.id
-where ativa = 'TRUE'
+where m.ativa = 'TRUE'
 group by professor_id, data, dia_semana, horario, sala, tipo, m.tipo, m.numero_alunos, d.nome, rn )
 
 UNION ALL
 
-select aluno, 
+select 
+aluno, 
 professor_id, 
 data_reposicao as data,
 dia_semana, 
