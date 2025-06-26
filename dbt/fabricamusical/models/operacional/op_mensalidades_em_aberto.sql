@@ -9,8 +9,8 @@ disciplinas.nome as disciplina,
 concat(matriculas.tipo, if(matriculas.tipo = 'Instrumento', concat(' - ', matriculas.numero_alunos), '')) as tipo_de_aula,
 case 
 when matriculas.tipo = 'Prática de conjunto' then (select valor from {{ source('planilhas', 'valores_base') }} where tipo = 'Mensalidade - Prática de conjunto')
-when matriculas.tipo = 'Instrumento' and matriculas.numero_alunos = 'Individual' then (select valor from {{ source('planilhas', 'valores_base') }} where tipo = 'Mensalidade - Instrumento individual')
-when matriculas.tipo = 'Instrumento' and matriculas.numero_alunos = 'Coletiva' then (select valor from {{ source('planilhas', 'valores_base') }} where tipo = 'Mensalidade - Instrumento coletiva')
+when matriculas.tipo = 'Instrumento' and matriculas.numero_alunos = '1' then (select valor from {{ source('planilhas', 'valores_base') }} where tipo = 'Mensalidade - Instrumento individual')
+when matriculas.tipo = 'Instrumento' and matriculas.numero_alunos = '2' then (select valor from {{ source('planilhas', 'valores_base') }} where tipo = 'Mensalidade - Instrumento em dupla')
 else null end as valor_devido,
 descontos.percentual as desconto,
 matriculas.dia_faturamento as dia_vencimento
