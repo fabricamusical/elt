@@ -1,0 +1,17 @@
+sources:
+  - name: planilhas
+    tables:
+      - name: clientes
+      - name: descontos
+      - name: despesas
+      - name: disciplinas
+      - name: experimentais
+      - name: funcionarios
+      - name: grade_horarios
+      - name: matriculas
+      - name: pagamentos_professores
+      - name: professores
+      - name: recebimentos
+      - name: receitas_extras
+      - name: reposicoes_prof
+      - name: valores_base

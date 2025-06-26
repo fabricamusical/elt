@@ -33,5 +33,13 @@ models:
   fabricamusical:
     staging:
       +materialized: view
-    mart:
+      +schema: staging
+    historico:
+      +materielized: incremental
+      +schema: historico
+    analise:
       +materialized: table
+      +schema: analise
+    operacional:
+      +materialized: table
+      +schema: operacional
