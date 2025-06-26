@@ -35,7 +35,7 @@ models:
       +materialized: view
       +schema: staging
     historico:
-      +materielized: incremental
+      +materialized: incremental
       +schema: historico
     analise:
       +materialized: table
