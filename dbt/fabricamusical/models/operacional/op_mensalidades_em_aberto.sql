@@ -1,7 +1,7 @@
 select 
 alunos.apelido as aluno, 
 alunos.tipo as tipo_de_aluno,
-responsaveis.apelido as responavel,
+responsaveis.apelido as responsavel,
 case when responsaveis.id is null then alunos.telefone else responsaveis.telefone end as telefone,
 case when responsaveis.id is null then alunos.telefone_alternativo else responsaveis.telefone_alternativo end as telefone2,
 professores.apelido as professor, 
