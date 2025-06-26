@@ -26,7 +26,7 @@ jobs:
       shell: bash
       run: |
         cd dbt/fabricamusical
-        echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 --decode > gcloud-key.json
+        echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 --decode > chave_bq.json
 
     - name: Comandos dbt
       run: |
