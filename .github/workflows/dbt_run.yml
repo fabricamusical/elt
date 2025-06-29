@@ -2,8 +2,7 @@ name: dbt run
 
 on:
   schedule:
-    - cron: '15 10-23 * * *'
-    - cron: '15 0-1 * * *'
+    - cron: '0 10-23 * * *'
   workflow_dispatch:
 
 jobs:
