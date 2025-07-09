@@ -15,3 +15,5 @@ sources:
       - name: receitas_extras
       - name: reposicoes_prof
       - name: valores_base
+      - name: professores_disciplinas
+      - name: disponibilidade_professores

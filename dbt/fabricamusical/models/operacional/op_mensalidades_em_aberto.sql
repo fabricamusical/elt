@@ -18,11 +18,11 @@ matriculas.dia_faturamento as dia_vencimento
 from {{ source('planilhas', 'matriculas') }} matriculas
 left join {{ source('planilhas', 'recebimentos') }} recebimentos on recebimentos.tipo = 'Mensalidade' 
     and recebimentos.matricula = matriculas.id  
-    and recebimentos.valido IN ('true', 'TRUE')
+    and UPPER(recebimentos.valido) = 'TRUE'
     and DATE_TRUNC(CURRENT_DATE(), MONTH) = SAFE.PARSE_DATE('%d/%m/%Y', recebimentos.mes_referencia)
 left join {{ source('planilhas', 'clientes') }} alunos on alunos.id = matriculas.aluno_id
 left join {{ source('planilhas', 'clientes') }} responsaveis on alunos.responsavel = responsaveis.id
 left join {{ source('planilhas', 'professores') }} professores on professores.id = matriculas.professor_id
 left join {{ source('planilhas', 'disciplinas') }} disciplinas on disciplinas.id = matriculas.disciplina_id
 left join {{ source('planilhas', 'descontos') }} descontos on descontos.id = matriculas.desconto_id
-where matriculas.ativa IN ('true','TRUE') and recebimentos.id is null
+where UPPER(matriculas.ativa) = 'TRUE' and recebimentos.id is null

@@ -10,15 +10,15 @@ sala,
 ROW_NUMBER() OVER (partition by dia_semana, horario, sala order by safe.parse_date('%d/%m/%Y', data) asc) rn 
 from {{ source('planilhas', 'experimentais') }} e 
 left join {{ source('planilhas', 'clientes') }} c on e.aluno_id = c.id 
-where valido = 'TRUE' AND safe.parse_date('%d/%m/%Y', data) >= current_date()   
+where UPPER(valido) = 'TRUE' AND safe.parse_date('%d/%m/%Y', data) >= current_date()   
 QUALIFY rn = 1)
 
 UNION ALL
 
 (select 
 case 
-    when m.tipo = 'Instrumento' then STRING_AGG(c.apelido, ' e ')
-    when m.tipo = 'Prática de conjunto' then d.nome 
+    when d.tipo = 'Instrumento' then STRING_AGG(c.apelido, ' e ')
+    when d.tipo = 'Prática de conjunto' then d.nome 
     else null 
     end as aluno, 
 professor_id, 
@@ -31,8 +31,8 @@ sala,
 from {{ source('planilhas', 'matriculas') }} m 
 left join {{ source('planilhas', 'clientes') }} c on m.aluno_id = c.id 
 left join {{ source('planilhas', 'disciplinas') }} d on m.disciplina_id = d.id
-where m.ativa = 'TRUE'
-group by professor_id, data, dia_semana, horario, sala, tipo, m.tipo, m.numero_alunos, d.nome, rn )
+where UPPER(m.ativa) = 'TRUE'
+group by professor_id, data, dia_semana, horario, sala, tipo, m.tipo, m.numero_alunos, d.nome, d.tipo, rn )
 
 UNION ALL
 
@@ -46,7 +46,7 @@ sala,
 'REP' as tipo, 
 ROW_NUMBER() OVER (partition by dia_semana, horario, sala order by safe.parse_date('%d/%m/%Y', data_reposicao) asc) rn 
 from {{ source('planilhas', 'reposicoes_prof') }}
-where valido = 'TRUE' AND safe.parse_date('%d/%m/%Y', data_reposicao) >= current_date()  
+where UPPER(valido) = 'TRUE' AND safe.parse_date('%d/%m/%Y', data_reposicao) >= current_date()  
 QUALIFY rn = 1
 )
 
