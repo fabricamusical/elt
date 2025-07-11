@@ -22,11 +22,11 @@ case
     else null 
     end as aluno, 
 professor_id, 
-'null' as data, 
+null as data, 
 dia_semana, 
 horario, 
 sala, 
-'null' as tipo, 
+null as tipo, 
 1 as rn 
 from {{ source('planilhas', 'matriculas') }} m 
 left join {{ source('planilhas', 'clientes') }} c on m.aluno_id = c.id 
