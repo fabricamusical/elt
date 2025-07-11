@@ -22,11 +22,11 @@ case
     else null 
     end as aluno, 
 professor_id, 
-null as data, 
+'null' as data, 
 dia_semana, 
 horario, 
 sala, 
-null as tipo, 
+'null' as tipo, 
 1 as rn 
 from {{ source('planilhas', 'matriculas') }} m 
 left join {{ source('planilhas', 'clientes') }} c on m.aluno_id = c.id 
@@ -51,15 +51,15 @@ QUALIFY rn = 1
 )
 
 SELECT g.dia, g.horario, 
-STRING_AGG(if(a.sala = 'Sala 1', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala1,
-STRING_AGG(if(a.sala = 'Sala 2', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala2,
-STRING_AGG(if(a.sala = 'Sala 3', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala3,
-STRING_AGG(if(a.sala = 'Sala 4', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala4,
-STRING_AGG(if(a.sala = 'Sala 5', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala5,
-STRING_AGG(if(a.sala = 'Sala 6', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala6,
-STRING_AGG(if(a.sala = 'Sala 7', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala7,
-STRING_AGG(if(a.sala = 'Sala 8', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala8,
-STRING_AGG(if(a.sala = 'Sala 9', concat(p.apelido, ' - ', aluno,if(a.tipo is not null, concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala9
+STRING_AGG(if(a.sala = 'Sala 1', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala1,
+STRING_AGG(if(a.sala = 'Sala 2', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala2,
+STRING_AGG(if(a.sala = 'Sala 3', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala3,
+STRING_AGG(if(a.sala = 'Sala 4', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala4,
+STRING_AGG(if(a.sala = 'Sala 5', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala5,
+STRING_AGG(if(a.sala = 'Sala 6', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala6,
+STRING_AGG(if(a.sala = 'Sala 7', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala7,
+STRING_AGG(if(a.sala = 'Sala 8', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala8,
+STRING_AGG(if(a.sala = 'Sala 9', concat(p.apelido, ' - ', aluno,if(a.tipo != 'null', concat(' - ', a.tipo, ': ', data), null)), null), ' | ') as sala9
 
 
  FROM {{ source('planilhas', 'grade_horarios') }} g 
