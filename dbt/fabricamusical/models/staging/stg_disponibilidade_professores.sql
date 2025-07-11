@@ -4,4 +4,4 @@ SELECT
     professor_id,
     SAFE.PARSE_DATE('%d/%m/%Y', last_update) as dia,
     horario
-FROM {{ source('planilhas', 'diponibilidade_professores') }}
+FROM {{ source('planilhas', 'disponibilidade_professores') }}
